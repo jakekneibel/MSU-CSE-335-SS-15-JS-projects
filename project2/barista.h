@@ -1,2 +1,5 @@
 class Barista{
+private:
+	
+
 }
