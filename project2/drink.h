@@ -1,55 +1,71 @@
 /* 
  * File:   drink.h
- * Author: sunangel
+ * Author: schmi534
  *
- * Created on January 18, 2015, 10:30 PM
+ * Created on January 30, 2015, 12:38 PM
  */
 
 #ifndef DRINK_H
 #define	DRINK_H
-#include <string>
-#include <vector>
+#include<iostream>
+#include<string>
+#include<vector>
+using std::cout; using std::endl; using std::cin;
+using std::string;
+using std::vector;
+using std::ostream;
 
-class Drink {
-public:
-    Drink(std::string orderer, int size);
-    Drink(const Drink & drink);
-    Drink& operator = (const Drink & drink);
-    virtual ~Drink();
-    virtual void confirmOrder();
-    static std::string numberSizeToWordSize(int size);
-
+class Drink{
 private:
-    int mSize;
-    std::string mOrderer;
+    string user;
+    int size;
+public:
+    Drink(string theName, int theSize);
+	Drink(const Drink & drink);
+	virtual ~Drink();
+    virtual void confirmOrder();
+    string sizestr();
+
+    string  get_user()const;
+    int  get_size()const;
+    
+    
+    Drink& operator=(const Drink &dr)
+    {
+		if(this != &dr){
+        	user = dr.get_user();
+        	size = dr.get_size();      
+		}
+		return *this;
+    }
+    
 };
-
-class BubbleTea: public Drink {
-public:
-    BubbleTea(std::string orderer, int size, bool warm, int amountOfBubbles);
-    BubbleTea(const BubbleTea & bt);
-    BubbleTea& operator = (const BubbleTea & bt);
-    virtual ~BubbleTea();
-    virtual void confirmOrder();
-
+class BubbleTea: public Drink{
 private:
-    bool mWarm;
-    int mAmountOfBubbles;
+    bool temp;
+    int opp;
+public:
+    BubbleTea();
+    BubbleTea(string theUser, int theSize, bool thetemp, int theopp);
+	BubbleTea(const BubbleTea& bubTea);
+	BubbleTea& operator = (const BubbleTea & bubTea);
+	virtual ~BubbleTea();
+    void confirmOrder();
+    string sizes();
 };
-
-
-class OrangeJuice : public Drink {
+class OrangeJuice: public Drink{
+    bool pulp; 
 public:
-    OrangeJuice(std::string orderer, int size, bool pulp);
-    OrangeJuice(const OrangeJuice & oj);
-    OrangeJuice& operator = (const OrangeJuice & oj);
-    virtual ~OrangeJuice();
-    virtual void confirmOrder();
-
-private:
-    bool mPulp;
+    OrangeJuice();
+    OrangeJuice(string theUser, int theSize, bool thepulp);
+	OrangeJuice(const OrangeJuice& oj);
+	~OrangeJuice();
+	OrangeJuice& operator=(const OrangeJuice& oj);
+    void confirmOrder();
+    string pulpstr();
     
 };
 
 
 #endif	/* DRINK_H */
+

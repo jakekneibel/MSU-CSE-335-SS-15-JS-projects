@@ -1,101 +1,107 @@
-/* 
- * File:   drink.cpp
- * Author: sunangel
- * 
- * Created on January 18, 2015, 10:30 PM
- */
+#include<iostream>
+using std::cout; using std::cin; using std::endl;
+#include<string>
+using std::string;
 
 #include "drink.h"
-#include <iostream>
-Drink::Drink(std::string orderer,int size){
-    mSize = size;
-    mOrderer=orderer;
+
+Drink::Drink(string theName, int theSize){
+    user=theName;
+    size=theSize;
 }
 
 Drink::Drink(const Drink & drink){
-    mSize=drink.mSize;
-    mOrderer=drink.mOrderer;
+	size=drink.get_size();
+	user=drink.get_user();
 }
 
-Drink& Drink::operator = (const Drink & drink){
-    if (this!=&drink) {
-        mSize = drink.mSize;
-        mOrderer = drink.mOrderer;
-    }
-    return *this;
-}
+Drink::~Drink(){}
 
-Drink::~Drink() {
-}
-
-
-std::string Drink::numberSizeToWordSize(int size) {
-    if (size==1) {
+string Drink::sizestr(){
+    if(size==1){
         return "small";
     }
-    else if (size==2) {
+    if(size==2){
         return "medium";
     }
-    else if (size==3){
+    else{
         return "large";
-    } else {
-        return "invalid size";
     }
 }
-void Drink::confirmOrder() {
-    std::cout << mOrderer << " ordered a " << numberSizeToWordSize(mSize) << " drink";
+
+string Drink::get_user() const{
+    return user;
 }
 
-BubbleTea::BubbleTea(std::string orderer, int size, bool warm, int amountOfBubbles)
-: Drink(orderer, size){
-    mWarm=warm;
-    mAmountOfBubbles=amountOfBubbles;
+int Drink::get_size()const{
+    return size;
 }
 
-BubbleTea::BubbleTea(const BubbleTea & bt):Drink(bt){
-    mAmountOfBubbles=bt.mAmountOfBubbles;
+void Drink::confirmOrder(){
+    std::cout << user << " ordered a " << sizestr() << " drink of";
 }
 
-BubbleTea& BubbleTea::operator = (const BubbleTea & bt){
-   if (this!= &bt) {
-        mAmountOfBubbles=bt.mAmountOfBubbles;
-        Drink::operator =(bt);
+BubbleTea::BubbleTea(string theUser, int theSize, bool thetemp, int theopp)
+: Drink(theUser, theSize) {
+    temp = thetemp;
+    opp = theopp;
+
+}
+BubbleTea::BubbleTea(const BubbleTea& bubTea):Drink(bubTea){
+	opp = bubTea.opp;
+	temp= bubTea.temp;
+}
+BubbleTea::~BubbleTea(){}
+BubbleTea& BubbleTea::operator=(const  BubbleTea& bubTea){
+	if (this != &bubTea){
+			opp = bubTea.opp;
+			temp = bubTea.temp;
+	}
+	return *this;
+}
+
+string BubbleTea::sizes(){
+    if(opp==1){
+        return "small bubbles";
     }
-    return *this;
+    if(opp==2){
+        return "medium bubbles";
+    }
+    else{
+        return "large bubbles";
+    }
 }
-
-BubbleTea::~BubbleTea() {
-}
-
-void BubbleTea::confirmOrder() {
+void BubbleTea::confirmOrder(){
     Drink::confirmOrder();
-    std::cout << " of bubble tea with " << numberSizeToWordSize(mAmountOfBubbles) << " bubbles";
+    std::cout << " bubble tea with " << sizes();
+}
+OrangeJuice::OrangeJuice(string theUser, int theSize, bool thepulp)
+: Drink(theUser, theSize) {
+    pulp = thepulp;
+}
+OrangeJuice::OrangeJuice(const OrangeJuice& oj):Drink(oj){
+	pulp=oj.pulp;
 }
 
-OrangeJuice::OrangeJuice(std::string orderer, int size, bool pulp)
-: Drink(orderer, size){
-    mPulp=pulp;
+OrangeJuice::~OrangeJuice(){}
+
+OrangeJuice& OrangeJuice::operator=(const OrangeJuice& oj){
+	if(this != &oj){
+		pulp = oj.pulp;
+		Drink::operator=(oj);
+	}
+	return *this;
 }
 
-OrangeJuice::OrangeJuice(const OrangeJuice & oj):Drink(oj){
-    mPulp=oj.mPulp;
-}
-
-OrangeJuice& OrangeJuice::operator = (const OrangeJuice & oj){
-    if (this!= &oj) {
-        mPulp=oj.mPulp;
-        Drink::operator =(oj);
+string OrangeJuice::pulpstr(){
+    if(pulp==true){
+        return "pulp";
     }
-    return *this;
+    else{
+        return "no pulp";
+    }
 }
-
-OrangeJuice::~OrangeJuice() {
-}
-
 void OrangeJuice::confirmOrder(){
     Drink::confirmOrder();
-    std::cout <<" of orange juice with ";
-    if (!mPulp)
-        std::cout <<"no ";
-    std::cout << "pulp";  
+    std::cout << " orange juice with " << pulpstr();
 }
