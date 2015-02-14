@@ -1,0 +1,22 @@
+coolsort(ordlist dataArry[]){
+int x,y,temp;
+  for(x=1; x<size; x++){
+      y=x;
+      while(y>0 && dataArray[y-1].size()>dataArray[y].size()){
+          temp=dataArray[y];
+          dataArray[y]=dataArray[y-1];
+          dataArray[y-1]=temp;
+          y--;
+      }
+    }
+  }
+  newsort(ordlist dataArry[]){
+    for(x=1; x<size; x++){
+      y=x;
+      while(y>0 && dataArray[y-1].name()>dataArray[y].name()){
+          temp=dataArray[y];
+          dataArray[y]=dataArray[y-1];
+          dataArray[y-1]=temp;
+          y--;
+      }
+  }
