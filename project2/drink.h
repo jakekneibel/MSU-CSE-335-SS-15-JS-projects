@@ -67,5 +67,17 @@ public:
 };
 
 
+class OrderList{
+
+};
+
+class OrangeJuiceOrderList:public OrderList{
+
+};
+
+class BubbleTeaList: public OrderList{
+};
+
+
 #endif	/* DRINK_H */
 

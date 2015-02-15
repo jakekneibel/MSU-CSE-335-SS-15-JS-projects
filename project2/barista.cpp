@@ -1,3 +1,5 @@
+#include "barista.h"
+
 void Barista::print(const OrderList& sortedList){
 
 	vector<Drink*> tempDrinks;
