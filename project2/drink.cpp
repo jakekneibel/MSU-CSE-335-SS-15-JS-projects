@@ -73,7 +73,7 @@ string BubbleTea::sizes(){
 }
 void BubbleTea::confirmOrder(){
     Drink::confirmOrder();
-    std::cout << " bubble tea with " << sizes();
+    std::cout << " bubble tea with " << sizes()<<endl;
 }
 OrangeJuice::OrangeJuice(string theUser, int theSize, bool thepulp)
 : Drink(theUser, theSize) {
@@ -103,5 +103,58 @@ string OrangeJuice::pulpstr(){
 }
 void OrangeJuice::confirmOrder(){
     Drink::confirmOrder();
-    std::cout << " orange juice with " << pulpstr();
+    std::cout << " orange juice with " << pulpstr()<<endl;
 }
+
+OrangeJuiceOrderList::OrangeJuiceOrderList(vector<OrangeJuice*>& ojList){
+	orangeJuiceDrinks=ojList;
+}
+
+OrangeJuiceOrderList::OrangeJuiceOrderList(const OrangeJuiceOrderList& ojOrderList){
+	orangeJuiceDrinks=ojOrderList.orangeJuiceDrinks;	
+}
+
+OrangeJuiceOrderList::~OrangeJuiceOrderList(){}
+
+OrangeJuiceOrderList& OrangeJuiceOrderList::operator=(const OrangeJuiceOrderList& ojOrderList){
+	if (this != &ojOrderList){
+		orangeJuiceDrinks=ojOrderList.orangeJuiceDrinks;
+	}
+	return *this;
+}
+
+void OrangeJuiceOrderList::toDrinkVector(vector<Drink*> & tempDrink){
+	//vector<Drink*> tempDrink;
+
+	for(unsigned int i=0;i<orangeJuiceDrinks.size();i++){
+		tempDrink.push_back(orangeJuiceDrinks[i]);
+	}
+}
+
+
+BubbleTeaList::BubbleTeaList(vector<BubbleTea*>& bubList){
+	bubbleTeaDrinks=bubList;
+}
+BubbleTeaList::BubbleTeaList(const BubbleTeaList& bubOrderList){
+	bubbleTeaDrinks=bubOrderList.bubbleTeaDrinks;	
+}
+
+BubbleTeaList::~BubbleTeaList(){}
+
+BubbleTeaList& BubbleTeaList::operator=(const BubbleTeaList& bubOrderList){
+	if (this != &bubOrderList){
+		bubbleTeaDrinks=bubOrderList.bubbleTeaDrinks;
+	}
+	return *this;
+}
+
+void BubbleTeaList::toDrinkVector(vector<Drink*> &tempDrink){
+	//vector<Drink*> tempDrink;
+
+	for(unsigned int i=0;i<bubbleTeaDrinks.size();i++){
+		tempDrink.push_back(bubbleTeaDrinks[i]);
+	}
+}
+
+
+

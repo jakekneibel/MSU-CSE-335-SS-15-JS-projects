@@ -1,60 +1,52 @@
-
+#include "drink.h"
 
 class Barista{
 public:
-	virtual void deliverDrinks(OrderList&)=0;
-	virtual OrderList& Sort(OrderList&)=0;
-	virtual string getSortBy(const Drink&)=0;
+	Barista();
+	Barista(const Barista&);
+	virtual ~Barista();
+	Barista& operator=(const Barista&);
+
+	virtual void deliverDrinks(OrangeJuiceOrderList*)=0;
+	virtual void deliverDrinks(BubbleTeaList*)=0;
+	virtual void sortDrinks(vector<Drink*>&)=0;
 
 protected:
-	Barista()=default;
-	Barista(const Barista&)=default;
-	virtual	~Barista(){};
-	Barista& operator =(const Barista&)=default;
-	virtual string sortBy(const Drink&)=0;
-private:
-	void print(const OrderList&);
+	virtual void print(vector<Drink*>&);
+	virtual string getSortBy(Drink&)=0;
+	virtual void printCall(int,string)=0;
+
 };
 
 class CoolBarista: public Barista{
 public:
-	virtual void deliverDrinks(OrderList& orderList)
-		{return coolDeliverDrinks(orderList);}
-	virtual OrderList& Sort(OrderList& orderList)
-		{return coolSort(orderList);}
-	string sortBy(const Drink&);	
+	CoolBarista();
+	CoolBarista(const CoolBarista&);
+	~CoolBarista();
+	CoolBarista& operator=(const CoolBarista&);
 
-	CoolBarista()=default;
-	CoolBarista(const CoolBarista&)=default;
-	CoolBarista& operator=(const CoolBarista&)=default;
-	~CoolBarista(){};
-	
-
-private:
-	string add = "for";
-	void coolDeliverDrinks(OrderList&);
-	OrderList& coolSort(OrderList&);
-
+	virtual void deliverDrinks(OrangeJuiceOrderList*);
+	virtual void deliverDrinks(BubbleTeaList*);
+	virtual void sortDrinks(vector<Drink*>&);
+	virtual string getSortBy(Drink&);
+protected:
+	virtual void printCall(int,string);
 };
 
 class NewbieBarista: public Barista{
 public:
-	virtual void deliverDrinks(OrderList& orderList)
-		{return newbieDeliverDrinks(orderList);}
-	virtual OrderList& Sort(OrderList& orderList)
-		{return newbieSort(orderList);}
-	string getSortBy(const Drink&);
+	NewbieBarista();
+	NewbieBarista(const NewbieBarista&);
+	~NewbieBarista();
+	NewbieBarista& operator=(const NewbieBarista&);
 
-	NewbieBarista()=default;
-	NewbieBarista(const NewbieBarista&)=default;
-	NewbieBarista& operator=(const NewbieBarista&) = default;
-	~NewbieBarista(){};
+	virtual void deliverDrinks(OrangeJuiceOrderList*);
+	virtual void deliverDrinks(BubbleTeaList*);
+	virtual void sortDrinks(vector<Drink*>&);
+	virtual string getSortBy(Drink&);
 
+protected:
+	virtual void printCall(int,string);
 	
-private:
-
-	string add ="of";
-	void newbieDeliverDrinks(OrderList&);
-	OrderList& newbieSort(OrderList&);
-
 };
+
