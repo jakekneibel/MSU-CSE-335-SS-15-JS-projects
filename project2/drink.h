@@ -67,16 +67,31 @@ public:
 };
 
 
-class OrderList{
+class OrangeJuiceOrderList{
+public:
+	OrangeJuiceOrderList(vector<OrangeJuice*>& ojList);
+	OrangeJuiceOrderList(const OrangeJuiceOrderList& ojOrderList);
+	~OrangeJuiceOrderList();
+	OrangeJuiceOrderList & operator=(const OrangeJuiceOrderList& ojOrderList);
 
+	void toDrinkVector(vector<Drink*> &);
+private:
+	vector<OrangeJuice*> orangeJuiceDrinks;
 };
 
-class OrangeJuiceOrderList:public OrderList{
+class BubbleTeaList{
+public:
 
+	BubbleTeaList(vector<BubbleTea*> & bubList);
+	BubbleTeaList(const BubbleTeaList& bubTeaList);
+	~BubbleTeaList();
+	BubbleTeaList & operator=(const BubbleTeaList& bubTeaList);
+
+	void toDrinkVector(vector<Drink*> & );
+private:
+	vector<BubbleTea*> bubbleTeaDrinks;
 };
 
-class BubbleTeaList: public OrderList{
-};
 
 
 #endif	/* DRINK_H */
