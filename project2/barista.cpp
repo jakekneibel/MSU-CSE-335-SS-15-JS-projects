@@ -36,7 +36,12 @@ void Barista::print(vector<Drink*>& Drinks){
         }
 
     }
-
+	printCall(tempDrinks.size(),sortBy);
+    for(unsigned t=0;t<tempDrinks.size();t++){
+    	tempDrinks[t]->confirmOrder();
+    }
+    cout <<  endl;
+    tempDrinks.clear();
 	
 }
 
