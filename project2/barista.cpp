@@ -70,9 +70,7 @@ void CoolBarista::sortDrinks(vector<Drink*>& drinks){
 	for(x=1; x<drinks.size(); x++){
 		y=x;
 		while(y>0 && drinks[y-1]->get_user()>drinks[y]->get_user()){
-			temp=*drinks[y];
-			drinks[y]=drinks[y-1];
-			*drinks[y-1]=temp;
+			swap(drinks[y-1],drinks[y]);
 			y--;
 		}
 	}
@@ -109,7 +107,7 @@ void NewbieBarista::sortDrinks(vector<Drink*>& drinks){
 	Drink temp;
 	for(x=1; x<drinks.size(); x++){
 		y=x;
-		while(y>0 && drinks[y-1]->get_size()>drinks[y]->get_size()){
+		while(y>=0 && drinks[y-1]->get_size()>drinks[y]->get_size()){
 			temp=*drinks[y];
 			drinks[y]=drinks[y-1];
 			*drinks[y-1]=temp;
