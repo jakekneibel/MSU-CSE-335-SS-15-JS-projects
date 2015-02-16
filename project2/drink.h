@@ -20,6 +20,7 @@ private:
     string user;
     int size;
 public:
+	Drink(){}
     Drink(string theName, int theSize);
 	Drink(const Drink & drink);
 	virtual ~Drink();
