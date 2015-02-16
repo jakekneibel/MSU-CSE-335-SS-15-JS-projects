@@ -65,6 +65,17 @@ void CoolBarista::deliverDrinks(BubbleTeaList *bubList){
 }
 
 void CoolBarista::sortDrinks(vector<Drink*>& drinks){
+	int x,y;
+	Drink temp;
+	for(x=1; x<size; x++){
+		y=x;
+		while(y>0 && drinks[y-1].get_user()>drinks[y].get_user()){
+			temp=drinks[y];
+			drinks[y]=drinks[y-1];
+			drinks[y-1]=temp;
+			y--;
+		}
+	}
 	cout<<"Cool Sort"<<endl;
 	print(drinks);
 }
@@ -94,6 +105,17 @@ void NewbieBarista::deliverDrinks(BubbleTeaList *bubList){
 }
 
 void NewbieBarista::sortDrinks(vector<Drink*>& drinks){
+	int x,y;
+	Drink temp;
+	for(x=1; x<size; x++){
+		y=x;
+		while(y>0 && drinks[y-1].get_size()>drinks[y].get_ssize()){
+			temp=drinks[y];
+			drinks[y]=drinks[y-1];
+			drinks[y-1]=temp;
+			y--;
+		}
+	}
 	cout<<"Newbie Sort"<<endl;
 	print(drinks);
 }
