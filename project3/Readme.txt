@@ -5,7 +5,7 @@ Contributors:
 contributions:
 
 	Jacob - 
-	Seth  - 
+	Seth  - makefile
 
 expected functionality:
 	
