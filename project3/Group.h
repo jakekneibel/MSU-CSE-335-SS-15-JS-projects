@@ -1,7 +1,7 @@
 #ifndef GROUP_H
 #define	GROUP_H
 class Group{
-public
+public:
   Group();
   Group(const Group&);
   ~Group();
