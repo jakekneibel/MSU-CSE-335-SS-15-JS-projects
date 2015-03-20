@@ -1,7 +1,7 @@
 #ifndef COUNTVISITOR_H
 #define	COUNTVISITOR_H
 class CountVisitor{
-public
+public:
   CountVisitor();
   CountVisitor(const CountVisitor&);
   ~CountVisitor();
