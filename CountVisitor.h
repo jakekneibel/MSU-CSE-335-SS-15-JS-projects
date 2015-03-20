@@ -1,0 +1,2 @@
+CountVisitor* CountVisitor(){
+}
