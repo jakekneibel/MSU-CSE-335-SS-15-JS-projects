@@ -1,7 +1,7 @@
 #ifndef PRINTVISITOR_H
 #define	PRINTVISITOR_H
 class PrintVisitor{
-public
+public:
   PrintVisitor();
   PrintVisitor(const PrintVisitor&);
   ~PrintVisitor();
