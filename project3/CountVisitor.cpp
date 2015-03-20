@@ -2,7 +2,7 @@
 CountVisitor::CountVisitor(){
 
 }
-CountVisitor::CountVisitor(const Drink & drink){
+CountVisitor::CountVisitor(const CountVisitor & countvisitor){
   
 }
 CountVisitor::~CountVisitor(){}
