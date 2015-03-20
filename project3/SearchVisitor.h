@@ -1,7 +1,7 @@
 #ifndef SEARCHVISITOR_H
 #define	SEARCHVISITOR_H
 class SearchVisitor{
-public
+public:
   SearchVisitor();
   SearchVisitor(const SearchVisitor&);
   ~SearchVisitor();
