@@ -1,4 +1,4 @@
-#ifndef DRINK_H
-#define	DRINK_H
+#ifndef COUNTVISITOR_H
+#define	COUNTVISITOR_H
 CountVisitor* CountVisitor();
-#endif	/* DRINK_H */
+#endif	/* COUNTVISITOR_H */
