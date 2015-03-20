@@ -1,12 +1,19 @@
-# CSE 335 Project 1 makefile
+# CSE 335 Project 3 makefile
 # Jacob Kneibel, Seth
-proj3.exe: main.o drink.o barista.o
-g++ main.o drink.o barista.o -o proj2.exe
-main.o: main.cpp drink.h
-g++ -Wall -c main.cpp
-drink.o: drink.cpp drink.h
-g++ -Wall -c drink.cpp
-barista.o: barista.cpp barista.h drink.h
-g++ -Wall -c barista.cpp
+//may need to change this
+proj3.exe: main.o Employee.o Group.o PrintVisitor.o SearchVisitor.o CountVisitor.o
+	g++ main.o Employee.o Group.o -o proj3.exe
+main.o: main.cpp Employee.h
+	g++ -Wall -c main.cpp
+Employee.o: Employee.cpp Employee.h
+	g++ -Wall -c Employee.cpp
+Group.o: Group.cpp Group.h
+	g++ -Wall -c Group.cpp
+PrintVisitor.o: PrintVisitor.cpp PrintVisitor.h
+	g++ -Wall -c PrintVisitor.cpp
+SearchVisitor.o: SearchVisitor.cpp SearchVisitor.h
+	g++ -Wall -c SearchVisitor.cpp
+CountVisitor.o: CountVisitor.cpp CountVisitor.h
+	g++ -Wall -c CountVisitor.cpp
 clean:
-rm -f proj2.exe main.o drink.o barista.o
+	rm -f proj3.exe main.o Employee.o Group.o PrintVisitor.o SearchVisitor.o CountVisitor.o
