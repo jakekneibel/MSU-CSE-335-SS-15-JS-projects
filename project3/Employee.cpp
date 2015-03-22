@@ -5,8 +5,8 @@ Employee::Employee(string theFName,string theLName,string thepos){
   pos=thepos;
 }
 Employee::Employee(const Employee & employee){
-  fName=employee.FName();
-  lName=employee.LName();
-  pos=employee.pos();
+  fName=employee.getFirst();
+  lName=employee.GetLast();
+  pos=employee.getField();
 }
 Employee::~Employee(){}
