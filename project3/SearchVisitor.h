@@ -1,5 +1,9 @@
 #ifndef SEARCHVISITOR_H
 #define	SEARCHVISITOR_H
+#include <string>
+#include <vector>
+using std::vector;
+using std::string;
 class SearchVisitor: public Visitor{
 private:
 	string query;

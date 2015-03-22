@@ -7,17 +7,17 @@ class Employee: public Node{
 private:
   std::string fName;
   std::string lName;
-  std:string pos;
+  std::string pos;
 public:
   virtual void Accept(Visitor*v){v->VisitEmployee(this);}
   Employee();
-  Employee(string theFName,string theLName,string thepos);
+  Employee(std::string theFName,std::string theLName,std::string thepos);
   Employee(const Employee&);
   ~Employee();
   Employee& operator=(const Employee&);
-  string getFirst(){return fName;};
-  string GetLast(){return lName;};
-  string getField(){return pos;};
+  std::string getFirst(){return fName;};
+  std::string GetLast(){return lName;};
+  std::string getField(){return pos;};
 };
 
 

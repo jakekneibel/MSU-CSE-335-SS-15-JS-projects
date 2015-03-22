@@ -1,14 +1,14 @@
 #ifndef PRINTVISITOR_H
 #define	PRINTVISITOR_H
-#include "Group.h"
-#include "Employee.h"
+//#include "Group.h"
+//#include "Employee.h"
 
 class Visitor{
 public:
 	virtual void VisitEmployee(Employee*)=0;
 	virtual void VisitGroup(Group*)=0;
 	virtual void Reset() =0;
-	virtual ~Vistor(){};
+	virtual ~Visitor(){};
 };
 
 class PrintVisitor: public Visitor{
