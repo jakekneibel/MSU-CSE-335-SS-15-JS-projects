@@ -13,9 +13,9 @@ public:
   Employee(const Employee&);
   ~Employee();
   Employee& operator=(const Employee&);
-  string FName(){return fName;};
-  string LName(){return lName;};
-  string pos(){return pos;};
+  string getFirst(){return fName;};
+  string GetLast(){return lName;};
+  string getField(){return pos;};
 };
 
 
