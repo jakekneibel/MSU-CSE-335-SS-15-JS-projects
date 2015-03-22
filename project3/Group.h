@@ -12,6 +12,7 @@ private:
   
 public:
   virtual void Accept(Visitor*v){v->VisitGroup(this);}
+  Group();
   Group(string);
   Group(const Group&);
   ~Group();
