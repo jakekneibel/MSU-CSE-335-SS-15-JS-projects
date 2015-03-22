@@ -3,6 +3,10 @@
 //#include "Group.h"
 //#include "Employee.h"
 
+class Node;
+class Employee;
+class Group;
+
 class Visitor{
 public:
 	virtual void VisitEmployee(Employee*)=0;

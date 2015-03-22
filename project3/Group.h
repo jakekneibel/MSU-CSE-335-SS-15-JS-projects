@@ -6,6 +6,11 @@
 class Node{
 public:
   virtual void Accept(Visitor*)=0;
+  virtual ~Node()=0;
+  Node();
+  Node(const Node&);
+
+ 
 };
 class Group: public Node{
 private:
