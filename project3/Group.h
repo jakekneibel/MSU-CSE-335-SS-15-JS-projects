@@ -1,14 +1,14 @@
 #ifndef GROUP_H
 #define	GROUP_H
 #include <list>
-class Groups{
+class Node{
 public:
   virtual void Accept(Visitor*v)=0;
 };
-class Group: public Groups{
+class Group: public Node{
 private:
   string name;
-  Groups list;
+  Node list;
   
 public:
   virtual void Accept(Visitor*v){v->VisitGroup(this);}
@@ -19,9 +19,9 @@ public:
   Group& operator=(const Group&);
   string getName(){return name;}
   groups list(){return list;}
-  void AddChild(Groups*);
+  void AddChild(Node*);
   int GetChildenSize(){return list.size();}
-  Groups GetChild(int i){return list[i];}
+  Node GetChild(int i){return list[i];}
   
 };
 #endif	/* GROUP_H */
