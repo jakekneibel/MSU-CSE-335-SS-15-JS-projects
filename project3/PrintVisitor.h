@@ -1,19 +1,8 @@
 #ifndef PRINTVISITOR_H
 #define	PRINTVISITOR_H
-//#include "Group.h"
-//#include "Employee.h"
-
-class Node;
-class Employee;
-class Group;
-
-class Visitor{
-public:
-	virtual void VisitEmployee(Employee*)=0;
-	virtual void VisitGroup(Group*)=0;
-	virtual void Reset() =0;
-	virtual ~Visitor(){};
-};
+#include "Visit.h"
+#include "Employee.h"
+#include "Group.h"
 
 class PrintVisitor: public Visitor{
 public:
@@ -27,7 +16,7 @@ public:
   virtual void VisitEmployee(Employee*);
   virtual void VisitGroup(Group*);
 
-  int getTab(){return Tab;};
+  int getTab()const{return Tab;};
 private:
 	int Tab;
 };

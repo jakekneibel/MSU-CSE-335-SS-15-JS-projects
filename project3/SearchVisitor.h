@@ -2,8 +2,12 @@
 #define	SEARCHVISITOR_H
 #include <string>
 #include <vector>
+#include "Visit.h"
+#include "Employee.h"
+#include "Group.h"
 using std::vector;
 using std::string;
+
 class SearchVisitor: public Visitor{
 private:
 	string query;
@@ -17,8 +21,8 @@ public:
   virtual void VisitEmployee(Employee*);
   virtual void VisitGroup(Group*);
   void setQuery(string);
-  string getQuery();
-  vector<Node*> getFound();
+  string getQuery()const;
+  vector<Node*> getFound()const;
   void PrintResults();
   virtual void Reset();
 };

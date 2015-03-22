@@ -1,3 +1,4 @@
+#include <iostream>
 #include "CountVisitor.h"
 CountVisitor::CountVisitor(){
 	Emp_count = 0;
@@ -9,10 +10,10 @@ CountVisitor::CountVisitor(const CountVisitor & countvisitor){
 }
 CountVisitor::~CountVisitor(){}
 
-CountVisitor& CountVisitor::operator=(cont CountVisitor& countvisitor){
-	if (this != countvisitor){
-		Emp_count = countVisitor.getEmp_count();
-		Grp_count = countVisitor.getGrp_count();
+CountVisitor& CountVisitor::operator=(const CountVisitor& countvisitor){
+	if (this != &countvisitor){
+		Emp_count = countvisitor.getEmp_count();
+		Grp_count = countvisitor.getGrp_count();
 	}
 	return *this;
 }
@@ -23,8 +24,8 @@ void CountVisitor::VisitEmployee(Employee* emp){
 void CountVisitor::VisitGroup(Group* grp){
 	Grp_count++;
 
-	for(uint i =0; i<grp.GetChildrenSize();i++){
-		grp.GetChild(i).accept(this);
+	for(int i =0; i<grp->GetChildrenSize();i++){
+		grp->GetChild(i)->Accept(this);
 	}
 }
 

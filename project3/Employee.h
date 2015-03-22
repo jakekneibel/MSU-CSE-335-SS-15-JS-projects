@@ -1,7 +1,9 @@
 #ifndef EMPLOYEE_H
 #define	EMPLOYEE_H
 #include <string>
-#include "Group.h"
+#include "Node.h"
+using std::string;
+
 
 class Employee: public Node{
 private:
@@ -9,15 +11,15 @@ private:
   std::string lName;
   std::string pos;
 public:
-  virtual void Accept(Visitor*v){v->VisitEmployee(this);}
+  virtual void Accept(Visitor*v){v->VisitEmployee(this);};
   Employee();
   Employee(std::string theFName,std::string theLName,std::string thepos);
   Employee(const Employee&);
   ~Employee();
   Employee& operator=(const Employee&);
-  std::string getFirst(){return fName;};
-  std::string GetLast(){return lName;};
-  std::string getField(){return pos;};
+  const std::string getFirst()const{return fName;};
+  const std::string GetLast()const{return lName;};
+  const std::string getField()const{return pos;};
 };
 
 

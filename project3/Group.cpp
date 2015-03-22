@@ -1,12 +1,12 @@
 #include "Group.h"
-Group::Group(string theName){
+Group::Group(std::string theName){
   name=theName;
 }
 Group::Group(const Group & group){
   name=group.getName();
-  nlist=group.list();
+  nlist=group.getlist();
 }
 Group::~Group(){}
-Group::AddChild(Groups* x){
+void Group::AddChild(Node* x){
   nlist.push_back(x);
 }

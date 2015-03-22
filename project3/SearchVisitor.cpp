@@ -1,20 +1,22 @@
 #include "SearchVisitor.h"
+#include "PrintVisitor.h"
+#include <iostream>
 SearchVisitor::SearchVisitor(){
 	query="";
-	found = new vector<Node*>();
+	//found = new vector<Node*>();
 }
 SearchVisitor::SearchVisitor(const SearchVisitor & searchvisitor){
 	query = searchvisitor.getQuery();
 	found = searchvisitor.getFound();
 }
 SearchVisitor::~SearchVisitor(){
-	this.Reset();
-	delete found;
-	delete query;
+	Reset();
+	//delete &found;
+	
 }
 
 SearchVisitor& SearchVisitor::operator=(const SearchVisitor& searchvisitor){
-	if(this != searchvisitor){
+	if(this != &searchvisitor){
 		query = searchvisitor.getQuery();
 		found = searchvisitor.getFound();	
 	}
@@ -22,17 +24,21 @@ SearchVisitor& SearchVisitor::operator=(const SearchVisitor& searchvisitor){
 }
 
 void SearchVisitor::VisitEmployee(Employee* emp){
-	if(emp.getFirst()==query){found.push_back(emp);}
-	elif(emp.getLast()==query){found.push_back(emp);}
-	elif(emp.getField()==query){found.push_back(emp);}
+	if(emp->getFirst()==query){found.push_back(emp);}
+	else if(emp->GetLast()==query){found.push_back(emp);}
+	else if(emp->getField()==query){found.push_back(emp);}
+	else if((emp->getFirst()+" "+emp->GetLast()) ==query){found.push_back(emp);}
 
 }
 
-string SearchVisitor::getQuery(){return query;}
-vector<Node*> SearchVisitor::getFound(){return found;}
+string SearchVisitor::getQuery()const{return query;}
+vector<Node*> SearchVisitor::getFound()const {return found;}
 
 void SearchVisitor::VisitGroup(Group* grp){
-	if(grp.getName()==query{found.push_back(emp);}
+	if(grp->getName()==query){found.push_back(grp);}
+	for(int i =0;i<grp->GetChildrenSize();i++){
+        grp->GetChild(i)->Accept(this);
+    }
 
 }
 
@@ -41,11 +47,14 @@ void SearchVisitor::setQuery(string str){
 }
 
 void SearchVisitor::PrintResults(){
-	PrintVistor pVisitor = new PrintVistor();
-	for(int i =0;i<found.size();i++){
-		found[i]->accept(pVisitor);	
+	std::cout << "Found "<<found.size();
+	std::cout <<" results for the query "<< query<<std::endl;
+	PrintVisitor* pVisitor = new PrintVisitor();
+	for(unsigned int i =0;i<found.size();i++){
+		found[i]->Accept(pVisitor);	
 		pVisitor->Reset();
 	}
+	std::cout<< std::endl;
 
 }
 

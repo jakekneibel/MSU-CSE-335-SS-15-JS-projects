@@ -2,16 +2,8 @@
 #define	GROUP_H
 #include <vector>
 #include <string>
-#include "PrintVisitor.h"
-class Node{
-public:
-  virtual void Accept(Visitor*)=0;
-  virtual ~Node()=0;
-  Node();
-  Node(const Node&);
+#include "Node.h"
 
- 
-};
 class Group: public Node{
 private:
   std::string name;
@@ -25,10 +17,10 @@ public:
   Group(const Group&);
   ~Group();
   Group& operator=(const Group&);
-  std::string getName(){return name;};
-  std::vector<Node*> getlist(){return nlist;};
+  std::string getName()const{return name;};
+  std::vector<Node*> getlist()const{return nlist;};
   void AddChild(Node*);
-  int GetChildenSize(){return nlist.size();};
+  int GetChildrenSize(){return nlist.size();};
   Node* GetChild(int i){return nlist[i];};
   
 };
