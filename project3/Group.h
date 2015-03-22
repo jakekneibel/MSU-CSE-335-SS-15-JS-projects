@@ -1,27 +1,30 @@
 #ifndef GROUP_H
 #define	GROUP_H
 #include <list>
+#include <string>
+#include "PrintVisitor.h"
 class Node{
 public:
-  virtual void Accept(Visitor*v)=0;
+  virtual void Accept(Visitor*)=0;
 };
 class Group: public Node{
 private:
-  string name;
-  Node list;
+  std::string name;
+  std::list<Node*> nlist;
+  //Node list;
   
 public:
-  virtual void Accept(Visitor*v){v->VisitGroup(this);}
+  virtual void Accept(Visitor* v){v->VisitGroup(this);}
   Group();
-  Group(string);
+  Group(std::string);
   Group(const Group&);
   ~Group();
   Group& operator=(const Group&);
-  string getName(){return name;};
-  groups list(){return list;};
+  std::string getName(){return name;};
+  Node* getlist(){return nlist;};
   void AddChild(Node*);
-  int GetChildenSize(){return list.size();};
-  Node GetChild(int i){return list[i];};
+  int GetChildenSize(){return nlist.size();};
+  Node* GetChild(int i){return nlist[i];};
   
 };
 #endif	/* GROUP_H */

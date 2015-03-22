@@ -4,9 +4,9 @@ Group::Group(string theName){
 }
 Group::Group(const Group & group){
   name=group.getName();
-  list=group.list();
+  nlist=group.list();
 }
 Group::~Group(){}
 Group::AddChild(Groups* x){
-  list.push_back(x);
+  nlist.push_back(x);
 }
