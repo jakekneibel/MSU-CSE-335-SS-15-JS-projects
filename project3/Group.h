@@ -1,8 +1,8 @@
 #ifndef GROUP_H
 #define	GROUP_H
-#include <vector>
-#include <string>
-#include "Node.h"
+#include <vector>//needed to initiate the program correctly
+#include <string>//needed to initiate the program correctly
+#include "Node.h"//needed to initiate the program correctly
 
 class Group: public Node{
 private:
@@ -11,7 +11,7 @@ private:
   //Node list;
   
 public:
-  virtual void Accept(Visitor* v){v->VisitGroup(this);}
+  virtual void Accept(Visitor* v){v->VisitGroup(this);}// needed for the visitor class
   Group();
   Group(std::string);
   Group(const Group&);
@@ -20,8 +20,8 @@ public:
   std::string getName()const{return name;};
   std::vector<Node*> getlist()const{return nlist;};
   void AddChild(Node*);
-  int GetChildrenSize(){return nlist.size();};
-  Node* GetChild(int i){return nlist[i];};
+  int GetChildrenSize(){return nlist.size();};//gets the size of the group
+  Node* GetChild(int i){return nlist[i];};//gets the information at position i
   
 };
 #endif	/* GROUP_H */
