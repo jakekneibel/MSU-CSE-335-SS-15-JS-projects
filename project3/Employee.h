@@ -1,7 +1,7 @@
 #ifndef EMPLOYEE_H
 #define	EMPLOYEE_H
 #include <string>
-#include "Node.h"
+#include "Node.h"//needed to initiate the program correctly
 using std::string;
 
 
@@ -11,7 +11,7 @@ private:
   std::string lName;
   std::string pos;
 public:
-  virtual void Accept(Visitor*v){v->VisitEmployee(this);};
+  virtual void Accept(Visitor*v){v->VisitEmployee(this);};//needed for the visitor class
   Employee();
   Employee(std::string theFName,std::string theLName,std::string thepos);
   Employee(const Employee&);
