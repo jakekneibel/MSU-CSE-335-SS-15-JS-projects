@@ -7,6 +7,6 @@ Group::Group(const Group & group){
   nlist=group.getlist();
 }
 Group::~Group(){}
-void Group::AddChild(Node* x){
+void Group::AddChild(Node* x){//adds groups or employee to the group
   nlist.push_back(x);
 }
