@@ -1,5 +1,5 @@
 #include "Employee.h"
-Employee::Employee(string theFName,string theLName,string thepos){
+Employee::Employee(string theFName,string theLName,string thepos){//contructor
   fName=theFName;
   lName=theLName;
   pos=thepos;
