@@ -2,17 +2,10 @@
 #define NODE_H
 #include "Visit.h"
 
-/*
-class Group;
-class Employee;
-class Visitor;
-class PrintVisitor;
-class SearchVisitor;
-class CountVisitor;
-*/
+//Abstract function that group and employee inherit from
 class Node{
 public:
-  virtual void Accept(Visitor*)=0;
+  virtual void Accept(Visitor*)=0; //function to implement acceptance of visitors
   virtual ~Node(){};
   Node(){};
   Node(const Node&){};
