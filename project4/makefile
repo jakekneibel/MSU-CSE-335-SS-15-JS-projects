@@ -1,10 +1,13 @@
 # CSE 335 Project 4 makefile
 # Jacob Kneibel, Seth
 
-proj4.exe: main.o Employee.o Group.o PrintVisitor.o SearchVisitor.o CountVisitor.o
-	g++ main.o Employee.o Group.o PrintVisitor.o SearchVisitor.o CountVisitor.o -o proj3.exe
+proj4.exe: main.o Employee.o Group.o PrintVisitor.o SearchVisitor.o CountVisitor.o Parser.o
+	g++ main.o Employee.o Group.o PrintVisitor.o SearchVisitor.o CountVisitor.o Parser.o -o proj4.exe
 
-main.o: main.cpp Employee.h PrintVisitor.h SearchVisitor.h Group.h CountVisitor.h
+Parser.o: Parser.cpp Parser.h
+	g++ -Wall -c Parser.cpp
+
+main.o: main.cpp Employee.h Parser.h PrintVisitor.h SearchVisitor.h Group.h CountVisitor.h
 	g++ -Wall -c main.cpp
 
 Employee.o: Employee.cpp Employee.h PrintVisitor.h Node.h
