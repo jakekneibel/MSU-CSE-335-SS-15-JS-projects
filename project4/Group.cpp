@@ -69,4 +69,5 @@ int Group::addnotes(nodes, group, flag){
       }
     }
   }
+  return flag;
 }
