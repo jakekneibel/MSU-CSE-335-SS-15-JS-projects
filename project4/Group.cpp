@@ -55,15 +55,17 @@ void Group::disband(nodes){
     }
   }
 }
-void Group::addnotes(nodes, group){
+int Group::addnotes(nodes, group, flag){
   for(int x=0; x<nlist.GetChildrenSize(); x++){
     if(nlist[x].type==2){
       Node* ref=nlist[x];
       if(ref.getName()==group){
         ref.AddChild(nodes);
+        return 1;
       }
       else{
-        ref.addnotes(nodes, group);
+        flag=ref.addnotes(nodes, group, flag);
+        return flag;
       }
     }
   }
