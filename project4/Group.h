@@ -20,9 +20,9 @@ public:
   std::string getName()const{return name;};
   std::vector<Node*> getlist()const{return nlist;};
   void AddChild(Node*);
-  void deletes(){};
+  virtual void deletes(){};
   int GetChildrenSize(){return nlist.size();};//gets the size of the group
   Node* GetChild(int i){return nlist[i];};//gets the information at position i
-  
+  virtual int types(){return 1;};
 };
 #endif	/* GROUP_H */
