@@ -28,7 +28,7 @@ void deletion(std::string node){
   }
 }
 virtual void deletionEmployee(fname, lname, pos){
-  for(int x=0; x<root.GetChildrenSize(); x++){
+  for(int x=0; x<nlist.GetChildrenSize(); x++){
     if(x.getFirst()==fname && x.GetLast()==lname && x.getField()==pos){
       x.deletes();
     }
