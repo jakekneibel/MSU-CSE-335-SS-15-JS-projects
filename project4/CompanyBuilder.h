@@ -15,7 +15,6 @@ public:
   virtual void deleteGroup(std::string nodes){};
   virtual void deleteEmployee(std::string fname, std::string lname, std::string pos){};
   ~CompanyBuilder();
-  CompanyBuilder& operator=(const CompanyBuildere&);
-  std::string getName()const{return name;};
+  CompanyBuilder& operator=(const CompanyBuilder&);
 };
 #endif	/* COMPANYBUILDER_H */
