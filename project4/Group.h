@@ -21,6 +21,7 @@ public:
   std::vector<Node*> getlist()const{return nlist;};
   void AddChild(Node*);
   virtual void deletes(){};
+  void deletion(std::string node){};
   int GetChildrenSize(){return nlist.size();};//gets the size of the group
   Node* GetChild(int i){return nlist[i];};//gets the information at position i
   virtual int types(){return 1;};
