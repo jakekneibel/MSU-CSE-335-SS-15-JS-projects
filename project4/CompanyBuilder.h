@@ -1,6 +1,6 @@
 class CompanyBuilder{
 public:
-  virtual void BuildMaze(){};
+  virtual void BuildCompany(){};
 protected:
   CompanyBuilder();
 };
