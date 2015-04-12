@@ -20,6 +20,7 @@ public:
   const std::string getFirst()const{return fName;};
   const std::string GetLast()const{return lName;};
   const std::string getField()const{return pos;};
+  void deletes(){delete this;};
 };
 
 
