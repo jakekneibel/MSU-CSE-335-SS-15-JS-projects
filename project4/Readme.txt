@@ -4,8 +4,8 @@ Contributors:
 
 contributions:
 
-	Jacob - 
-	Seth  - makefile
+	Jacob - error checking
+	Seth  - UML Diagram. Builder class, Company builder class, update to old classes
 
 expected functionality:
 	
