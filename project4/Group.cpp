@@ -16,3 +16,25 @@ Group::deletes(){
     }
   delete this;
 }
+void deletion(std::string node){
+  for(int x=0; x<nlist.GetChildrenSize(); x++){
+    if(x.getName()==nodes){
+      x.deletes();
+    }
+    else if(x.type==2){
+      Node* ref=root[x];
+      ref.deletion(nodes);
+    }
+  }
+}
+virtual void deletionEmployee(fname, lname, pos){
+  for(int x=0; x<root.GetChildrenSize(); x++){
+    if(x.getFirst()==fname && x.GetLast()==lname && x.getField()==pos){
+      x.deletes();
+    }
+    else if(x.type==2){
+      Node* ref=root[x];
+      ref.deletionEmployee(fname, lname, pos);
+    }
+  }
+};
