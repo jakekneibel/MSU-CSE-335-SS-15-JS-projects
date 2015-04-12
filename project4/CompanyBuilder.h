@@ -6,11 +6,9 @@
 class CompanyBuilder{
 private:
   Group* root;
-  std::vector<Node*> nlist;
 public:
   virtual void BuildCompany(){};
   virtual void addNode(Node* nodes, std::string group){};
-  virtual void addGroup(Node* nodes){};
   virtual void addroot(std::string roots){};
   virtual void disband(std::string nodes){};
   virtual void deleteGroup(std::string nodes){};
@@ -18,6 +16,5 @@ public:
   ~CompanyBuilder();
   CompanyBuilder& operator=(const CompanyBuildere&);
   std::string getName()const{return name;};
-  std::vector<Node*> getlist()const{return nlist;};
 };
 #endif	/* COMPANYBUILDER_H */
