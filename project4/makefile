@@ -2,10 +2,10 @@
 # Jacob Kneibel, Seth
 
 proj4.exe: main.o Employee.o Group.o PrintVisitor.o SearchVisitor.o CountVisitor.o Parser.o
-	g++ main.o Employee.o Group.o PrintVisitor.o SearchVisitor.o CountVisitor.o Parser.o -o proj4.exe
+	g++ -fpermissive main.o Employee.o Group.o PrintVisitor.o SearchVisitor.o CountVisitor.o Parser.o -o proj4.exe 
 
 Parser.o: Parser.cpp Parser.h
-	g++ -Wall -c Parser.cpp
+	g++ -fpermissive -Wall -c Parser.cpp 
 
 main.o: main.cpp Employee.h Parser.h PrintVisitor.h SearchVisitor.h Group.h CountVisitor.h
 	g++ -Wall -c main.cpp

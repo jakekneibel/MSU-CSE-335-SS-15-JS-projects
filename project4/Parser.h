@@ -1,8 +1,13 @@
 #include <fstream>
 #include <iostream>
 #include <string>
-
-class CompanyBuilder;
+#include <stdio.h>
+#include <cstring>
+#include <unistd.h>
+#include <stdlib.h>
+#include "Employee.h"
+#include "Group.h"
+#include "CompanyBuilder.h"
 
 class Parser{
 public:
