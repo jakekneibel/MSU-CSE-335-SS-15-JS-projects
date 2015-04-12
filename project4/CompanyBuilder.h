@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 #include "Node.h"
+#include "Builder.h"
 class CompanyBuilder : public Builder{
 private:
   Group* root;
