@@ -16,7 +16,7 @@ Group::deletes(){
     }
   delete this;
 }
-void deletion(std::string node){
+void Group::deletion(std::string node){
   for(int x=0; x<nlist.GetChildrenSize(); x++){
     if(x.getName()==nodes){
       x.deletes();
@@ -27,7 +27,7 @@ void deletion(std::string node){
     }
   }
 }
-virtual void deletionEmployee(fname, lname, pos){
+void Group::deletionEmployee(fname, lname, pos){
   for(int x=0; x<nlist.GetChildrenSize(); x++){
     if(x.getFirst()==fname && x.GetLast()==lname && x.getField()==pos){
       x.deletes();
@@ -38,3 +38,18 @@ virtual void deletionEmployee(fname, lname, pos){
     }
   }
 };
+void Group::disband(nodes){
+  for(int x=0; x<nlist.GetChildrenSize(); x++){
+    if(x.getName()==nodes){
+      Node* ref=root[x];
+      for(int i=0; i<ref.GetChildrenSize(); i++){
+        AddChild(ref.GetChild(i));
+      }
+      delete x;
+    }
+    else if(x.type==2){
+      Node* ref=root[x];
+      ref.disbands(nodes);
+    }
+  }
+}
