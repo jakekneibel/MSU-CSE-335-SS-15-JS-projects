@@ -11,13 +11,13 @@ Group::~Group(){}
 void Group::AddChild(Node* x){//adds groups or employee to the group
   nlist.push_back(x);
 }
-void Group::deletes(){
+void Group::deletes(){//deletes all elements in the group
   for(int x=0; x<this->GetChildrenSize(); x++){
       this->GetChild(x)->deletes();
     }
   delete this;
 }
-void Group::deletion(std::string node){
+void Group::deletion(std::string node){//looks through the whole comapain and deletes the element 
   int tbd=-1;
   for(int x=0; x<this->GetChildrenSize(); x++){
 	if(this->GetChild(x)->types()==1){
@@ -49,7 +49,7 @@ void Group::deletionEmployee(std::string fname,std::string lname,std::string pos
   }
 }
 */
-void Group::disbands(std::string nodes){
+void Group::disbands(std::string nodes){//finds the group and adds the elements to the larger group
   int tbd=-1;
   for(int x=0; x<this->GetChildrenSize(); x++){
     if(nlist[x]->getName()==nodes){
@@ -69,7 +69,7 @@ void Group::disbands(std::string nodes){
      nlist.erase(nlist.begin()+tbd);
   }
 }
-int Group::addnotes(Node* nodes,std::string group,int flag){
+int Group::addnotes(Node* nodes,std::string group,int flag){// add the node to the group that it is being requested
   for(int x=0; x<this->GetChildrenSize(); x++){
     if(this->GetChild(x)->types()==1){
       Node* ref=this->GetChild(x);
