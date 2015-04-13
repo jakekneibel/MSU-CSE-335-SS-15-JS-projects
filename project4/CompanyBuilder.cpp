@@ -1,31 +1,37 @@
 
 #include "CompanyBuilder.h"
-void CompanyBuilder::BuildCompany(){Group* root = new Group(" ");};
-void CompanyBuilder::addNode(Nodes* nodes,std::string group){
+#include <iostream>
+using namespace std;
+
+void CompanyBuilder::BuildCompany(){root = NULL;};
+void CompanyBuilder::addNode(Node* nodes,std::string group){
   int flag;
+  if (root->getName()==group){
+    root->AddChild(nodes);
+	return;}
   flag=root->addnotes(nodes, group,0);
-  if(flag==0 && nodes.types()==2){
-    cout<<"ERROR: parent group "<<node.getName()<<" does not exist. Omitting this entry"<<endl;
+  if(flag==0 && nodes->types()==2){
+    std::cout<<"ERROR: parent group "<<group<<" does not exist. Omitting this entry"<<std::endl;
   }
-  else if(flag==0 && nodes.types()==1){
-    cout<<"ERROR: parent group "<<node.getFirst()<<" does not exist. Omitting this entry"<<endl;
+  else if(flag==0 && nodes->types()==1){
+    std::cout<<"ERROR: parent group "<< group<<" does not exist. Omitting this entry"<<std::endl;
   }
 }
-Node* CompanyBuilder::addroot(roots){Group* root = new Group(roots);
+Node* CompanyBuilder::addroot(string roots){root = new Group(roots);
 	return root;};
 CompanyBuilder::CompanyBuilder(const CompanyBuilder & company){
   root=company.getroot();
 }
-void CompanyBuilder::disband(nodes){
+void CompanyBuilder::disband(string nodes){
   root->disbands(nodes);
 }
-void CompanyBuilder::deleteGroup(nodes){
+void CompanyBuilder::deleteGroup(string nodes){
   root->deletion(nodes);
 }
-virtual void CompanyBuilder::deleteEmployee(fname, lname, pos){
+void CompanyBuilder::deleteEmployee(string fname,string lname,string pos){
   //root->deletionEmployee(fname, lname, pos);
 }
 CompanyBuilder::~CompanyBuilder(){}
-CompanyBuilder::CompanyBuilder(const Group & group){
-  root=group.getroot();
+CompanyBuilder::CompanyBuilder(Group * group){
+  root=group;
 }

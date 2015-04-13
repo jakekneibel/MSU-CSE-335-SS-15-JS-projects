@@ -8,6 +8,7 @@
 #include "Employee.h"
 #include "Group.h"
 #include "CompanyBuilder.h"
+#include "PrintVisitor.h"
 
 class Parser{
 public:

@@ -24,6 +24,14 @@ public:
   virtual void deletion(std::string Node){};
   void deletes(){delete this;};
   virtual int types(){return 2;};
+
+  virtual int GetChildrenSize(){return 0;};
+  virtual Node* GetChild(int i){return NULL;};
+  virtual void disbands(std::string node){};
+  virtual void AddChild(Node*){};
+  virtual int addnotes(Node* n,std::string s, int i){return 0;};
+
+
 };
 
 

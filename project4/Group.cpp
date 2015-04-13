@@ -18,7 +18,7 @@ void Group::deletes(){
 }
 void Group::deletion(std::string node){
   for(int x=0; x<this->GetChildrenSize(); x++){
-	if(nlist[x]->types()==2){
+	if(nlist[x]->types()==1){
       if(nlist[x]->getName()==node){
         nlist[x]->deletes();
       }
@@ -53,7 +53,7 @@ void Group::disbands(std::string nodes){
       }
       delete nlist[x];
     }
-    else if(nlist[x]->types()==2){
+    else if(nlist[x]->types()==1){
       Node* ref=nlist[x];
       ref->disbands(nodes);
     }
@@ -61,15 +61,14 @@ void Group::disbands(std::string nodes){
 }
 int Group::addnotes(Node* nodes,std::string group,int flag){
   for(int x=0; x<this->GetChildrenSize(); x++){
-    if(nlist[x]->types()==2){
-      Node* ref=nlist[x];
+    if(this->GetChild(x)->types()==1){
+      Node* ref=this->GetChild(x);
       if(ref->getName()==group){
         ref->AddChild(nodes);
         return 1;
       }
       else{
         flag=ref->addnotes(nodes, group, flag);
-        return flag;
       }
     }
   }
