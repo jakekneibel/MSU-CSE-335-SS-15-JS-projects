@@ -10,9 +10,9 @@ private:
   Group* root;
 public:
   virtual void BuildCompany();
-  virtual void addNode(Node* nodes, std::string group);
-  virtual Node* addroot(std::string roots);
-  virtual void disband(std::string nodes);
+  virtual void addNode(Node* nodes, std::string group);//add employee and groups to the root
+  virtual Node* addroot(std::string roots);//creates the root
+  virtual void disband(std::string nodes);//disband a group and adds the emlement in the group to the larger group
   virtual void deleteGroup(std::string nodes);
   Group* getroot()const{return root;};
   virtual void deleteEmployee(std::string fname, std::string lname, std::string pos);
