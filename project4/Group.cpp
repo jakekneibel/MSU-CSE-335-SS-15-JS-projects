@@ -1,4 +1,5 @@
 #include "Group.h"
+#include <iostream>
 Group::Group(std::string theName){
   name=theName;
 }
@@ -12,22 +13,26 @@ void Group::AddChild(Node* x){//adds groups or employee to the group
 }
 void Group::deletes(){
   for(int x=0; x<this->GetChildrenSize(); x++){
-      nlist[x]->deletes();
+      this->GetChild(x)->deletes();
     }
   delete this;
 }
 void Group::deletion(std::string node){
+  int tbd=-1;
   for(int x=0; x<this->GetChildrenSize(); x++){
-	if(nlist[x]->types()==1){
-      if(nlist[x]->getName()==node){
-        nlist[x]->deletes();
+	if(this->GetChild(x)->types()==1){
+      if(this->GetChild(x)->getName()==node){
+        this->GetChild(x)->deletes();
+		tbd=x;
       }
       else{
-        Node* ref=nlist[x];
+        Node* ref=this->GetChild(x);
         ref->deletion(node);
       }
 	}
   }
+  if (tbd != -1){
+  nlist.erase(nlist.begin()+tbd);}
 }
 /*
 void Group::deletionEmployee(std::string fname,std::string lname,std::string pos){
@@ -45,6 +50,7 @@ void Group::deletionEmployee(std::string fname,std::string lname,std::string pos
 }
 */
 void Group::disbands(std::string nodes){
+  int tbd=-1;
   for(int x=0; x<this->GetChildrenSize(); x++){
     if(nlist[x]->getName()==nodes){
       Node* ref=nlist[x];
@@ -52,11 +58,15 @@ void Group::disbands(std::string nodes){
         AddChild(ref->GetChild(i));
       }
       delete nlist[x];
+	  tbd=x;
     }
     else if(nlist[x]->types()==1){
       Node* ref=nlist[x];
       ref->disbands(nodes);
     }
+  }
+  if (tbd !=-1){
+     nlist.erase(nlist.begin()+tbd);
   }
 }
 int Group::addnotes(Node* nodes,std::string group,int flag){
