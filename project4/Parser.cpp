@@ -12,6 +12,7 @@ Parser::Parser(char *fileName){
 Parser::~Parser(){};
 
 bool Parser::Parse(CompanyBuilder *cb){
+	PrintVisitor* pVisitor = new PrintVisitor();
 	std::string lines;
 	getline(inFile,lines);
 	char * temp;
@@ -19,11 +20,12 @@ bool Parser::Parse(CompanyBuilder *cb){
 
 	std::cout<<"\033[2J\033[1;1H";
 	std::cout<<lines<<std::endl;
-	//cb->addroot(lines);
+	Node* root = cb->addroot(lines);
 	while (!inFile.eof()){
 		
 		usleep(1000000);
 		std::cout<<"\033[2J\033[1;1H";
+		root->Accept(pVisitor);
 		getline(inFile,lines);
 		if (lines ==""){break;}
 		std::cout << lines <<std::endl;	

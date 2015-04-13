@@ -8,6 +8,7 @@ virtual void deletes()=0;
 virtual int types()=0;
 virtual std::string getName()=0;
 virtual void Accept(Visitor*)=0; //function to implement acceptance of visitors
+virtual void deletion(std::string)=0;
 virtual ~Node(){};
 Node(){};
 Node(const Node&){};

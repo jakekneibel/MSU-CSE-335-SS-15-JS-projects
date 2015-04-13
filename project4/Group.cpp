@@ -29,6 +29,7 @@ void Group::deletion(std::string node){
 	}
   }
 }
+/*
 void Group::deletionEmployee(std::string fname,std::string lname,std::string pos){
   for(int x=0; x<this->GetChildrenSize(); x++){
     if(nlist[x]->types()==2){
@@ -42,7 +43,8 @@ void Group::deletionEmployee(std::string fname,std::string lname,std::string pos
     }
   }
 }
-void Group::disband(std::string nodes){
+*/
+void Group::disbands(std::string nodes){
   for(int x=0; x<this->GetChildrenSize(); x++){
     if(nlist[x]->getName()==nodes){
       Node* ref=nlist[x];
@@ -53,7 +55,7 @@ void Group::disband(std::string nodes){
     }
     else if(nlist[x]->types()==2){
       Node* ref=nlist[x];
-      ref->disband(nodes);
+      ref->disbands(nodes);
     }
   }
 }
