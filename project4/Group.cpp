@@ -18,29 +18,31 @@ void Group::deletes(){
 }
 void Group::deletion(std::string node){
   for(int x=0; x<this->GetChildrenSize(); x++){
-    if(nlist[x]->getName()==nodes){
-      nlist[x]->deletes();
-    }
-    else if(nlist[x]->type==2){
-      Node* ref=nlist[x];
-      ref->deletion(nodes);
-    }
+	if(nlist[x]->types()==2){
+      if(nlist[x]->getName()==node){
+        nlist[x]->deletes();
+      }
+      else{
+        Node* ref=nlist[x];
+        ref->deletion(node);
+      }
+	}
   }
 }
-void Group::deletionEmployee(fname, lname, pos){
+void Group::deletionEmployee(std::string fname,std::string lname,std::string pos){
   for(int x=0; x<this->GetChildrenSize(); x++){
-    if(nlist[x]->type==2){
+    if(nlist[x]->types()==2){
       if(nlist[x]->getFirst()==fname && nlist[x]->GetLast()==lname && nlist[x]->getField()==pos){
         nlist[x]->deletes();
       }
     }
-    else if(nlist[x]->type==2){
+    else if(nlist[x]->types()==2){
       Node* ref=nlist[x];
       ref->deletionEmployee(fname, lname, pos);
     }
   }
 }
-void Group::disband(nodes){
+void Group::disband(std::string nodes){
   for(int x=0; x<this->GetChildrenSize(); x++){
     if(nlist[x]->getName()==nodes){
       Node* ref=nlist[x];
@@ -49,15 +51,15 @@ void Group::disband(nodes){
       }
       delete nlist[x];
     }
-    else if(nlist[x]->type==2){
+    else if(nlist[x]->types()==2){
       Node* ref=nlist[x];
-      ref->disbands(nodes);
+      ref->disband(nodes);
     }
   }
 }
-int Group::addnotes(nodes, group, flag){
+int Group::addnotes(Node* nodes,std::string group,int flag){
   for(int x=0; x<this->GetChildrenSize(); x++){
-    if(nlist[x]->type==2){
+    if(nlist[x]->types()==2){
       Node* ref=nlist[x];
       if(ref->getName()==group){
         ref->AddChild(nodes);

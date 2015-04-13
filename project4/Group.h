@@ -22,6 +22,7 @@ public:
   void AddChild(Node*);
   virtual void deletes();
   void deletion(std::string node);
+  void disband(std::string node);
   //void deletionEmployee(std::string fname, std::string lname, std::string pos);
   virtual void deletionEmployee(std::string fname, std::string lname, std::string pos);
   int addnotes(Node* nodes, std::string group, int flag);
