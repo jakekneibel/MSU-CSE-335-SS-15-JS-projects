@@ -4,7 +4,7 @@ Contributors:
 
 contributions:
 
-	Jacob - error checking
+	Jacob - error checking, Parser
 	Seth  - UML Diagram. Builder class, Company builder class, update to old classes
 
 expected functionality:
