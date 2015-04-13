@@ -1,6 +1,6 @@
 #ifndef BUILDER_H
 #define	BUILDER_H
-class Builder {
+class Builder {//virtual function to use BuilderCompany
 public:
   virtual void BuildCompany()=0;
   virtual void addNode(Node* nodes, std::string group)=0;
