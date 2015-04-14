@@ -10,6 +10,8 @@
 #include "CompanyBuilder.h"
 #include "PrintVisitor.h"
 
+
+//class that will parse the input file for instructions
 class Parser{
 public:
 	Parser();
@@ -19,5 +21,5 @@ public:
 	Parser operator=(const Parser*);
 	bool Parse(CompanyBuilder*);
 private:
-	std::ifstream inFile;
+	std::ifstream inFile; //the stream for the file
 };
